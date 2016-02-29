@@ -16,7 +16,10 @@
   xlin11: Decompose the rating a user given to a restaurant to different aspects of the restaurants, like service, flavour, location, and etc. And regenerate the rating for different aspects of the restaurant. 
 
   asnyder6:
-    I am responsible for creating the front end and setting up the web service.  
+    I am responsible for creating the front end and setting up the web service.
+    
+  chakilu2:
+    I will implement the pre-processing of data to understand the what aspects of different restaurants concern the users.
 
 4. Do you have a dataset (or is one necessary?).
   Yes. Yelp dataset through API and last data science hackthon. 
