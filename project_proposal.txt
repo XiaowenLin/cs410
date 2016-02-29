@@ -1,5 +1,5 @@
 1. Are you working in a team? (Y/N). If yes, list the netids of your team members.
-  Yes, xlin11, asnyder6, 
+  Yes, xlin11, asnyder6, chakilu2
 
 2. What is your project's goal?
   Plan to do NLP and search engine based on Yelp data with Python to better identify user's desired store. 
