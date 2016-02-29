@@ -1,27 +1,28 @@
 1. Are you working in a team? (Y/N). If yes, list the netids of your team members.
-Yes, xlin11, asnyder6, 
+  Yes, xlin11, asnyder6, 
 
 2. What is your project's goal?
-Plan to do NLP and search engine based on Yelp data with Python to better identify user's desired store. 
-Use cases to handle:
+  Plan to do NLP and search engine based on Yelp data with Python to better identify user's desired store. 
+  Use cases to handle:
 
-1. When user try to find a restaurant with a good flavour, user can only filter the results with average rating of the restaurant, which also considers service, and etc.
-2. When user try to read reviews about a restaurant for its flavour, user have to manually go through the reviews to find it.
+    1. When user try to find a restaurant with a good flavour, user can only filter the results with average rating of the restaurant, which also considers service, and etc.
+    2. When user try to read reviews about a restaurant for its flavour, user have to manually go through the reviews to find it.
 
-Main features of the application:
-1. Pre-process the data to understand what are the major aspects of a restaurants that would be users' top concerns.
-2. Decompose the rating a user given to a restaurant to different aspects of the restaurants, like service, flavour, location, and etc. And regenerate the rating for different aspects of the restaurant. 3. Retrieve most relevant reviews given user's query. 4. All these will be provided as an online service that is mobile compatible. 
+  Main features of the application:
+    1. Pre-process the data to understand what are the major aspects of a restaurants that would be users' top concerns.
+    2. Decompose the rating a user given to a restaurant to different aspects of the restaurants, like service, flavour, location, and etc. And regenerate the rating for different aspects of the restaurant. 3. Retrieve most relevant reviews given user's query. 4. All   these will be provided as an online service that is mobile compatible. 
+
 3. What are YOU personally responsible for in the project? (If working alone, still describe what you will do.)
-xlin11: Decompose the rating a user given to a restaurant to different aspects of the restaurants, like service, flavour, location, and etc. And regenerate the rating for different aspects of the restaurant. 
+  xlin11: Decompose the rating a user given to a restaurant to different aspects of the restaurants, like service, flavour, location, and etc. And regenerate the rating for different aspects of the restaurant. 
 
-asnyder6:
-I am responsible for creating the front end and setting up the web service.  
+  asnyder6:
+    I am responsible for creating the front end and setting up the web service.  
 
 4. Do you have a dataset (or is one necessary?).
-Yes. Yelp dataset through API and last data science hackthon. 
+  Yes. Yelp dataset through API and last data science hackthon. 
 
 5. Are there any particular algorithms or methods you plan on running?
-To get feature extraction started, RAKE(rapid automatic keyword extraction) algorithm will be used as a pilot. 
+  To get feature extraction started, RAKE(rapid automatic keyword extraction) algorithm will be used as a pilot. 
 
 6. What tools/software will you use for your project?
-Python to NLP. 
+  Python to NLP. PHP/HTML and JS for the front end. Will use the D3 JavaScript framework to display results.
