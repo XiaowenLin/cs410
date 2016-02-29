@@ -1,0 +1,17 @@
+1. Are you working in a team? (Y/N). If yes, list the netids of your team members.
+Yes, xlin11, asnyder6, 
+
+2. What is your project's goal?
+Plan to do NLP and search engine based on Yelp data with Python to better identify user's desired store. 
+
+3. What are YOU personally responsible for in the project? (If working alone, still describe what you will do.)
+xlin11:
+
+asnyder6:
+I am responsible for creating the front end and setting up the web service.  
+
+4. Do you have a dataset (or is one necessary?).
+
+5. Are there any particular algorithms or methods you plan on running?
+
+6. What tools/software will you use for your project?
