@@ -1,5 +1,5 @@
 1. Are you working in a team? (Y/N). If yes, list the netids of your team members.
-  Yes, xlin11, asnyder6, chakilu2
+  Yes, xlin11, asnyder6, chakilu2, ejchou2
 
 2. What is your project's goal?
   Plan to do NLP and search engine based on Yelp data with Python to better identify user's desired store. 
@@ -22,6 +22,9 @@
     
   chakilu2:
     I will implement the 1st and the 3rd main feature, namely the pre-processing of data, and the retrieval of the most relevant reviews, given user's query. 
+
+  ejchou2:
+    I will be working on decomposing the rating data and regenerating the ratings with xlin11.
 
 4. Do you have a dataset (or is one necessary?).
   Yes. Yelp dataset through API and last data science hackthon. 
