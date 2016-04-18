@@ -1,0 +1,90 @@
+
+html,body {
+   background-color: white;
+   color: black;
+   height: 100%;
+}
+
+h1 {
+	color: #CF000F;
+}
+
+h2 {
+	color: white;
+	margin-top: 10px;
+}
+
+#content {
+   margin-left: auto;
+   margin-right: auto;
+   width: 100%;
+   height: 100%;
+   /*width: 952px;*/
+   /*background-color: Gainsboro;
+   overflow-y: hidden;*/
+}
+#bar {
+	width: 100%;
+  height: auto;
+  border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	background-color: #CF000F;
+}
+
+#top {
+	max-width: 1000px;
+	height: auto;
+	margin-left: auto;
+  margin-right: auto;
+	display: flex;
+	flex-direction: column;
+	/*border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	background-color: #CF000F;*/
+}
+#results {
+	margin: auto;
+	max-width: 1000px;
+	height: 90%;
+	/*background-color: blue;*/
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;
+} 
+
+.topItems  {
+  float: left;
+  position: relative;
+  font-weight: bold;
+  padding: 5px 5px;
+  height: 50px;
+}
+
+.searchBox  {
+  font-size: 100%;
+  width: 300px;
+  height: 40px;
+}
+
+.button {
+  float: left;
+  background-color: #8C9AA9;
+  color: white;
+  font-size: 200%;
+	font-weight: bold;
+  margin: 5px;
+  border-style: none;
+  width: 45px;
+  height: 45px;
+  cursor: pointer; 
+}
+
+.rotate45 {
+	-webkit-transform: rotate(-45deg); 
+  -moz-transform: rotate(-45deg); 
+  -o-transform: rotate(-45deg);
+}
+
+li { 
+		cursor: pointer; 
+}
