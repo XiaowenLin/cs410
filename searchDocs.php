@@ -11,20 +11,20 @@ echo "Find: {$findVal} Near: {$nearVal}";
 return;
 //awaiting java function details
 /*
-try {
+//try {
    //Initialize the java connection
-   $javaConn = new Java(''); //Initialize the java connection
-   if($javaConn === NULL) {
-      echo "ERROR creating java connection";
-      return;
-   }
+//   $javaConn = new Java(''); //Initialize the java connection
+//   if($javaConn === NULL) {
+//      echo "ERROR creating java connection";
+//      return;
+//   }
 
    // Run the query
-   $result = $javaConn->searchDocs($findVal, $nearVal);
+//   $result = $javaConn->searchDocs($findVal, $nearVal);
 
-} catch (Exception $e) {
-   echo "ERROR " . $e;
-   return;
-} 
+//} catch (Exception $e) {
+//   echo "ERROR " . $e;
+//   return;
+//} 
 */
 ?>
