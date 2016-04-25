@@ -8,7 +8,8 @@ $findVal  = rawurldecode($_GET['findVal']);
 $nearVal  = rawurldecode($_GET['nearVal']);
 //echo the inputs for a test
 echo "Find: {$findVal} Near: {$nearVal}";
-/*awaiting java function details
+//awaiting java function details
+/*
 try {
    //Initialize the java connection
    $javaConn = new Java(''); //Initialize the java connection
