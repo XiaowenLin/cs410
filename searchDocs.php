@@ -7,5 +7,5 @@ Date: 4/25/16
 $findVal  = rawurldecode($_GET['findVal']);
 $nearVal  = rawurldecode($_GET['nearVal']);
 //echo the inputs for a test
-return "Find: {$findVal} Near: {$nearVal}";
+return "Find: " + $findVal + " Near: " + $nearVal + ";
 ?>
