@@ -8,4 +8,22 @@ $findVal  = rawurldecode($_GET['findVal']);
 $nearVal  = rawurldecode($_GET['nearVal']);
 //echo the inputs for a test
 return "Find: " + $findVal + " Near: " + $nearVal + ";
+//awaiting java function details
+/*
+try {
+   //Initialize the java connection
+   $javaConn = new Java(''); //Initialize the java connection
+   if($javaConn === NULL) {
+      echo "ERROR creating java connection";
+      return;
+   }
+
+   // Run the query
+   $result = $javaConn->searchDocs($findVal, $nearVal);
+
+} catch (Exception $e) {
+   echo "ERROR " . $e;
+   return;
+} 
+*/
 ?>
