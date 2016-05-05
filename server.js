@@ -46,6 +46,7 @@ function processFormFieldsIndividual(req, res) {
     //The data store could be a file or database or any other store based
     //on your application.
     var fields = [];
+
     var form = new formidable.IncomingForm();
     form.on('field', function (field, value) {
         console.log(field);
@@ -55,10 +56,51 @@ function processFormFieldsIndividual(req, res) {
     });
 
     form.on('end', function () {
+	
         res.writeHead(200, {
             'content-type': 'text/plain'
         });
         res.write('received the data:\n\n');
+
+	var net = require('net');
+
+	var HOST = '127.0.0.1';
+	var PORT = 9000;
+
+	var client = new net.Socket();
+	client.connect(PORT, HOST, function() {
+
+	    console.log('CONNECTED TO: ' + HOST + ':' + PORT);
+	    // Write a message to the socket as soon as the client is connected, the server will receive it as message from the client 
+	    client.write(fields['Find'] + ', ' + fields['Near']);
+	    client.end();
+
+	});
+
+	// Add a 'data' event handler for the client socket
+	// data is what the server sent to this socket
+	client.on('data', function(data) {
+	    
+	    console.log('DATA: ' + data);
+	    // Close the client socket completely
+	    client.destroy();
+	    
+	});
+
+	// Add a 'close' event handler for the client socket
+	client.on('close', function() {
+	    console.log('Connection closed');
+	});
+
+	/*
+	var net = require('net');
+
+	var client = new net.Socket();
+	client.connect(9000, '127.0.0.1', function() {
+		console.log('Connected');
+		client.write('Hello, server! Love, Client.');
+	});
+	
         var spawn = require('child_process').spawn,
         py    = spawn('python', ['compute_input.py']),
         data = [1,2,3,4,5,6,7,8,9],
@@ -72,6 +114,9 @@ function processFormFieldsIndividual(req, res) {
         });
         py.stdin.write(JSON.stringify(data));
         py.stdin.end();
+	*/
+
+	
         res.end(util.inspect({
             fields: fields
         }));
