@@ -8,13 +8,13 @@
     <div id='content'>
       <div id='bar'>
         <div id='top'>
-        	<form action="" method="post" enctype="multipart/form-data">
+        	<form action="http://127.0.0.1:8081/process_post" method="POST">
         		<center>
-          		<div class='topItems'>
+          	<div class='topItems'>
             		<h2>NLP Enhanced Yelp Search Engine</h2>
             	</div>
            		<fieldset>
-           			<div class='topItems'>
+           	<div class='topItems'>
               		<label for="name">Find:</label>
               		<input type="text" id="find" name="Find" class='searchBox' placeholder="Restaurant with good taste" />
               	</div> 
@@ -23,9 +23,9 @@
               		<input type="text" id="near" name="Near" class='searchBox' placeholder="Chicago, IL" />
               	</div>
               	<div class='topItems'>
-              		<button type="submit" class='button' onclick='searchDocs()'><div class='rotate45'>&#9906;</div></button>
+              		<input type="submit" value="Search" />
               	</div>
-           		</fieldset>
+           	</fieldset>
          		</center>
       		</form>         
         </div>
