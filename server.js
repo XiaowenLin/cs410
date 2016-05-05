@@ -4,7 +4,7 @@ var formidable = require("formidable");
 var util = require('util');
 
 var server = http.createServer(function (req, res) {
-    //read in the css file for page styling
+    //read in the css file for page styling 
     if(req.url.indexOf('.css') != -1){
       fs.readFile('style.css', function (err, data) {
         if (err) console.log(err);
