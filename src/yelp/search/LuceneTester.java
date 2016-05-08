@@ -1,5 +1,7 @@
 package yelp.search;
 
+import java.io.*;
+import java.net.*;
 import java.io.IOException;
 
 import org.apache.lucene.document.Document;
@@ -14,16 +16,33 @@ public class LuceneTester {
 	Indexer indexer;
 	Searcher searcher;
 
-	public static void main(String[] args) {
-		LuceneTester tester;
+	public static void main(String[] args) throws IOException {
+		LuceneTester tester = new LuceneTester();
+		tester = new LuceneTester();
+		tester.createIndex();
+		
+		Messager m = null;
 		try {
-			tester = new LuceneTester();
-			tester.createIndex();
-			tester.search("Mohan");
+			m = new Messager(9005);
+			m.run();
 		} catch (IOException e) {
 			e.printStackTrace();
-		} catch (ParseException e) {
-			e.printStackTrace();
+		}
+		int sz;
+		String msg;
+		while (true) {
+			sz = m.msg_size();
+			if (sz > 0) {
+				msg = m.pop_msg();
+				System.out.println("lucene receives " + msg);
+				try {
+					tester.search(msg);
+				} catch (IOException e) {
+					e.printStackTrace();
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}
+			}
 		}
 	}
 
