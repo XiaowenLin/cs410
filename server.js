@@ -11,6 +11,10 @@ app.get('/form.html', function (req, res) {
    res.sendFile( __dirname + "/" + "form.html" );
 })
 
+app.get('/read_data.html', function (req, res) {
+   res.sendFile( __dirname + "/" + "read_data.html" );
+})
+
 app.post('/process_post', urlencodedParser, function (req, res) {
 
    // Prepare output in JSON format
@@ -23,7 +27,10 @@ app.post('/process_post', urlencodedParser, function (req, res) {
 	var Near_string = "" + req.body.Near;
 
    console.log(response);
-   res.end(JSON.stringify(response));
+	res.statusCode = 302; 
+    res.setHeader("Location", "/read_data.html");
+    res.end();
+   //res.end(JSON.stringify(response));
 	
 
 	var net = require('net');
@@ -35,8 +42,9 @@ app.post('/process_post', urlencodedParser, function (req, res) {
 	client.connect(PORT, HOST, function() {
 
 	    console.log('CONNECTED TO: ' + HOST + ':' + PORT);
-	    // Write a message to the socket as soon as the client is connected, the server will receive it as message from the client 
-	    client.write(Find_string + " " + Near_string);
+	    // Write a message to the socket as soon as the client is connected, the server will receive it as message from the client
+ 
+	    client.write(Find_string + ", " + Near_string);
 	    client.end();
 
 	});
