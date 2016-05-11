@@ -8,7 +8,11 @@ from random import randint
 
 BUFFER_SIZE = 1024
 ADDR = 'localhost'
-PORT = 8999
+
+fl = open('../config.json')
+config = json.load(fl)
+PORT = config['text_analysis']
+
 
 def get_logger(level=logging.DEBUG, logger_name='stdout', logfile=None):
     formatter = logging.Formatter('[%(threadName)10s]: %(message)s')
