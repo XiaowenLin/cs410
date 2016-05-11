@@ -1,3 +1,4 @@
+
 html,body {
    background-color: white;
    color: black;
@@ -31,7 +32,7 @@ h2 {
 }
 
 #top {
-	max-width: 1200px;
+	max-width: 1000px;
 	height: auto;
 	margin-left: auto;
   margin-right: auto;
@@ -43,7 +44,7 @@ h2 {
 }
 #results {
 	margin: auto;
-	max-width: 1200px;
+	max-width: 1000px;
 	height: 90%;
 	/*background-color: blue;*/
 	border-left: 1px solid black;

@@ -1,0 +1,37 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>NLP Enhanced Yelp Search Engine</title>
+    <link rel="stylesheet" type="text/css" href="style.css" >
+  </head>
+  <body>
+    <div id='content'>
+      <div id='bar'>
+        <div id='top'>
+        	<form action="http://127.0.0.1:8081/process_post" method="POST">
+        		<center>
+          	<div class='topItems'>
+            		<h2>NLP Enhanced Yelp Search Engine</h2>
+            	</div>
+           		<fieldset>
+           	<div class='topItems'>
+              		<label for="name">Find:</label>
+              		<input type="text" id="find" name="Find" class='searchBox' placeholder="Restaurant with good taste" />
+              	</div> 
+              	<div class='topItems'>
+              		<label for="email">Near:</label>
+              		<input type="text" id="near" name="Near" class='searchBox' placeholder="Chicago, IL" />
+              	</div>
+              	<div class='topItems'>
+              		<input type="submit" value="Search" />
+              	</div>
+           	</fieldset>
+         		</center>
+      		</form>         
+        </div>
+      </div>
+      <div id='results'>
+      </div>
+    </div>
+  </body>
+</html>
