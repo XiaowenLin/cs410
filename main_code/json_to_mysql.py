@@ -1,0 +1,179 @@
+import peewee
+from peewee import *
+from models import *
+from models import Business
+from models import Review
+from models import User
+from models import Checkin
+from models import Neighborhood
+from models import Category
+from models import Tip
+import json
+import decimal
+from datetime import datetime
+
+def iterate_file(model_name, shortcircuit=True, status_frequency=500):
+    i = 0
+    jsonfilename = "json/yelp_academic_dataset_%s.json" % model_name.lower()
+    with open(jsonfilename) as jfile:
+        for line in jfile:
+            i += 1
+            yield json.loads(line)
+            if i % status_frequency == 0:
+                print("Status >>> %s: %d" % (jsonfilename, i))
+                if shortcircuit and i == 10:
+                    raise StopIteration()
+                    
+    
+def save_businesses():
+    for bdata in iterate_file("business", shortcircuit=False):
+        business = Business()
+        business.business_id = bdata['business_id']
+        business.name = bdata['name']
+        business.full_address = bdata['full_address']
+        business.city = bdata['city']
+        business.state = bdata['state']
+        business.latitude = bdata['latitude']
+        business.longitude = bdata['longitude']
+        business.stars = decimal.Decimal(bdata.get('stars', 0))
+        business.review_count = int(bdata['review_count'])
+        business.is_open = True if bdata['open'] == "True" else False
+        try:
+            business.save()
+        except InternalError:
+            print "i dont care"
+            pass
+
+        save_categories(bdata['business_id'], bdata['categories'])
+        save_neighborhoods(bdata['business_id'], bdata['neighborhoods'])
+
+
+def save_categories(business_id, cat_jarray):
+    for name in cat_jarray:
+        category = Category()
+        category.business_id = business_id
+        category.category_name = name
+        try:
+            category.save()
+        except InternalError:
+            print "i dont care"
+            pass
+
+
+def save_neighborhoods(business_id, hood_jarray):
+    for hood in hood_jarray:
+        neighborhood = Neighborhood()
+        neighborhood.business_id = business_id
+        neighborhood.neighborhood_name = hood
+        try:
+            neighborhood.save()
+        except InternalError:
+            print "i dont care"
+            pass
+
+def save_reviews():
+    for rdata in iterate_file("review", shortcircuit=False):
+        rev = Review()
+        rev.business_id = rdata['business_id']
+        rev.user_id = rdata['user_id']
+        rev.stars = int(rdata.get('stars', 0))
+        rev.text = rdata['text']
+        rev.date = datetime.strptime(rdata['date'], "%Y-%m-%d")
+        rev.useful_votes = int(rdata['votes']['useful'])
+        rev.funny_votes = int(rdata['votes']['funny'])
+        rev.cool_votes = int(rdata['votes']['cool'])
+        try:
+            rev.save()
+        except InternalError:
+            print "i dont care"
+            pass
+
+def save_users():
+    for udata in iterate_file("user", shortcircuit=False):
+        user = User()
+        user.user_id = udata['user_id']
+        user.name = udata['name']
+        user.review_count = int(udata['review_count'])
+        user.average_stars = decimal.Decimal(udata.get('average_stars', 0))
+        user.useful_votes = int(udata['votes']['useful'])
+        user.funny_votes = int(udata['votes']['funny'])
+        user.cool_votes = int(udata['votes']['cool'])
+        try:
+            user.save()
+        except InternalError:
+            print "i dont care"
+            pass
+
+def save_checkins():
+    for cdata in iterate_file("checkin", shortcircuit=False):
+        checkin = Checkin()
+        checkin.business_id = cdata['business_id']
+        for day in range(7):
+            for hour in range(24):
+                number = int(cdata['checkin_info'].get("%s-%s" % (hour, day), 0))
+                if day is 0:
+                    checkin.sunday_count += number
+                elif day is 1:
+                    checkin.monday_count += number
+                elif day is 2:
+                    checkin.tuesday_count += number
+                elif day is 3:
+                    checkin.wednesday_count += number
+                elif day is 4:
+                    checkin.thursday_count += number
+                elif day is 5:
+                    checkin.friday_count += number
+                elif day is 6:
+                    checkin.saturday_count += number
+                    try:
+                        checkin.save()
+                    except InternalError:
+                        print "i dont care"
+                        pass
+
+def save_tips():
+    for tdata in iterate_file("tip", shortcircuit=True):
+        tip = Tip()
+        tip.business_id = tdata['business_id']
+        tip.text = tdata['text']
+        tip.user_id = tdata['user_id']
+        tip.date = datetime.strptime(tdata['date'], "%Y-%m-%d")
+        tip.likes = int(tdata['likes'])
+        try:
+            tip.save()
+        except InternalError:
+            print "i dont care"
+            pass
+
+
+def reset_database():
+    tables = (Business, Review, User, Checkin, Neighborhood, Category, Tip,)
+    for table in tables:
+        # Nuke the Tables
+        try:
+            print "aye lmao"
+            table.drop_table(1)
+        except OperationalError:
+            print "God damn it"
+            pass
+
+        try:
+            print "shit nigga"
+            table.create_table(1)
+        except OperationalError:
+            print "What the fuck"
+            pass
+        
+        # Create the Tables
+        
+    
+if __name__ == "__main__":
+
+    reset_database()
+
+    save_businesses()
+    save_users()
+    save_checkins()
+    save_reviews()
+    save_tips()
+    
