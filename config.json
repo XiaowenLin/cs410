@@ -1,0 +1,5 @@
+{
+    "web":8999, 
+    "text_analysis":9000, 
+    "lucene":9001
+}
